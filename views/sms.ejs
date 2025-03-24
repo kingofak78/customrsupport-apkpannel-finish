@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Details</title>
+    <link rel="stylesheet" href="/css/notify.css">
+</head>
+<body>
+
+    <!-- Custom Navbar with Only Back Button -->
+    <nav class="custom-navbar">
+        <a href="/api/device/dashboard" class="nav-btn">Back</a>
+    </nav>
+
+    <div class="container">
+        <% if (smsData.length > 0) { %>
+            <% smsData.forEach(sms => { %>
+                <div class="sms-card" data-id="<%= sms.uniqueid %>">
+                    <h3>Sender: <%= sms.sender %></h3>
+                    <p><strong>Title:</strong> <%= sms.title %></p>
+                    <p><strong>Body:</strong> <%= sms.body %></p>
+                    <p class="timestamp"><strong>Timestamp:</strong> <%= sms.timestamp %></p>
+                </div>
+            <% }); %>
+        <% } else { %>
+            
+        <% } %>
+    </div>
+
+</body>
+</html>
